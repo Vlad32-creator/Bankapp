@@ -1,0 +1,192 @@
+#container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(185, 52, 25, 0.25) !important;
+    z-index: 2;
+}
+
+@media (max-width: 430px) and (max-height: 940px) {
+    #registrationContent {
+        width: 200px !important;
+        height: 220px !important;
+        border-radius: 10vh !important;
+    }
+
+    #registrationLogo {
+        font-size: 1.2rem !important;
+    }
+
+    #logoImage {
+        margin-right: 1vh !important;
+    }
+
+    #submitBtn {
+        width: 40px;
+        font-size: 0.5rem;
+    }
+
+    #inputName {
+        font-size: 1.3rem;
+    }
+
+    #registrationPasswordInput
+    input[type='password'],
+    input[type='text'] {
+        font-size: 1.3rem;
+    }
+}
+
+#registrationContent {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 4fr;
+    width: 50vh;
+    height: 50vh;
+    background-image: radial-gradient(rgb(228, 43, 43), rgb(126, 24, 24));
+    border-radius: 15vh;
+    padding: 5vh;
+    transition: transform 1s ease;
+    box-shadow: 20px 20px 30px;
+    animation: enter 1s ease-in-out;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+#inputs button {
+    font-size: 0.5rem;
+    background-color: transparent;
+    border: none;
+}
+
+#registrationLogo {
+    position: relative;
+    top: 0%;
+    left: -5%;
+    color: rgb(255, 255, 255);
+    grid-column: 1/3;
+    font-size: 1.5rem;
+}
+
+#inputName {
+    grid-column: 1/3;
+}
+
+#registrationPasswordInput {
+    grid-column: 1/5;
+}
+
+#submitBtn {
+    border: none;
+    padding: 1vh;
+    border-radius: 5vh;
+    background: gold;
+    grid-column: 2/3;
+    transform: translateX(100%);
+    box-shadow: 0px 0px 10px goldenrod;
+    transition: all 1s ease;
+}
+
+#submitBtn:hover {
+    box-sizing: 2rem;
+    box-shadow: 0px 0px 30px goldenrod;
+}
+
+input[type='password'],
+input[type='text'] {
+    margin-top: 5vh;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: white;
+    width: 20vw;
+    font-size: 1.5rem;
+}
+
+input::placeholder {
+    color: white;
+}
+
+#logoImage {
+    margin-right: 2vh;
+}
+
+#flipCard {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    padding: 2vh;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+    animation: content 2s ease forwards;
+}
+
+#devilText {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    transform: rotateY(180deg);
+    opacity: 0;
+    font-size: 1.5rem;
+    animation: content 2s ease forwards;
+}
+
+@keyframes content {
+    form {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#exit {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+/* Errors */
+#errorName{
+    position: relative;
+    top: 25px;
+    color: yellow;
+}
+#errorPassword{
+    color: yellow;
+    position: relative;
+    top: 25px;
+}
+.append{
+    animation: append 1s ease;
+}
+@keyframes append {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}

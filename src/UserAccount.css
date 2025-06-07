@@ -1,0 +1,260 @@
+:root {
+    --shadowCard: rgb(255, 217, 0);
+}
+
+#userAccount-Wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(140deg, rgb(126, 24, 24), rgb(228, 43, 43));
+}
+
+#userAccount-Wrapper button {
+    background-color: transparent;
+    border: none;
+}
+
+/* Header */
+#userAccount-Wrapper header button{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 75px;
+    height: 75px;
+    background-color: red;
+    border-radius: 50%;
+}
+#userAccount-Wrapper header ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 25%;
+    left: 12%;
+    animation: openPanel 1s ease forwards;
+}
+@keyframes openPanel {
+    from{
+       opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+#userAccount-Wrapper header li{
+    color: white;
+    transition: color 0.5s ease;
+    cursor: pointer;
+}
+#userAccount-Wrapper header li:hover{
+    color: rgb(79, 79, 222);
+}
+
+#userAccount-Logo {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#userAccount-LogoImage {
+    margin-left: 2vh;
+}
+
+/* Main */
+@media (max-width: 430px) and (max-height: 932px) {
+    #userAccount-UserIcon {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    #userAccount-GoldenCard {
+        width: 303px !important;
+        height: 155px !important;
+        box-shadow: 2px 2px 30px var(--shadowCard) !important;
+    }
+
+    .Balance {
+        font-size: 1rem !important;
+    }
+
+    .CardNumberCard {
+        width: 70% !important;
+    }
+
+    #userAccount-NavBar {
+        width: 100% !important;
+        background-color: transparent !important;
+        transform: translateY(-50%);
+    }
+
+    #addCustomCard {
+        transform: translateY(150%) !important;
+    }
+}
+
+@media (min-height: 940px) and (max-height: 1400px) {
+    #userAccount-NavBar {
+        width: 70% !important;
+        background-color: transparent !important;
+    }
+    #addCustomCard {
+        transform: translateY(150%) !important;
+    }
+    #userAccount-NavBar {
+        display: flex;
+        justify-content: space-around;
+        align-items: start !important;
+    }
+    #userAccount-UserIcon{
+        width: 5vh;
+        height: 5vh ;
+    }
+    .navItem {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+
+#userAccount-Main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+}
+
+#userAccount-PrecedingCard {
+    transform: rotate(180deg);
+}
+
+#userAccount-CardsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80vw;
+    height: 80%;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+
+#userAccount-GoldenCard {
+    background-image: linear-gradient(rgb(255, 217, 0), rgb(153, 130, 0));
+    position: relative;
+    width: 500px;
+    height: 240px;
+    border-radius: 5vh;
+}
+.UserAccountCard{
+    animation: cardAppend 2s ease;
+    transition: transform 1s ease, box-shadow 1s ease;
+}
+.UserAccountCard:active{
+    transform: scale(0.9);
+    box-shadow: 0px 0px 0px;
+}
+@keyframes cardAppend {
+    from{
+        opacity: 0;
+        transform: translateX(-50%);
+    }tp{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+
+.CardNameCard {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+
+.CardNumberCard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    font-size: clamp(1rem, 7vw, 3rem);
+}
+
+.copyBtn {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+}
+
+.CardNameBank {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+}
+
+#addCustomCard {
+    position: absolute;
+    top: 20%;
+    right: 25%;
+    animation: appendPlus 2s ease;
+    transition: transform 1s ease;
+}
+
+ #addCustomCard:hover {
+    transform: scale(1.1) rotate(180deg);
+} 
+@keyframes appendPlus {
+    from{
+        transform: scale(0.2) rotate(0);
+    }to{
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+.Balance {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    font-size: 2rem;
+}
+
+/* Nav */
+#userAccount-Nav {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    height: 20%;
+}
+
+#userAccount-NavBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 80%;
+    border-radius: 10vh 10vh 0 0;
+    background-color: rgb(164, 17, 17);
+}
+
+.navItem {
+    width: 65px;
+    height: 65px;
+    border-radius: 2vh;
+    background-image: linear-gradient(rgb(142, 210, 186), rgb(73, 108, 95));
+    animation: appendItem 1s ease forwards;
+}
+
+#topUpButton {
+    background-image: linear-gradient(-90deg, rgb(142, 210, 186), rgb(73, 108, 95));
+    transform: rotate(-90deg);
+}
+
+@keyframes appendItem {
+    from{
+        transform: translateY(40%);
+    }to{
+        transform: translateY(0%);
+    }
+}

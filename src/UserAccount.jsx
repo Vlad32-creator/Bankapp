@@ -1,0 +1,165 @@
+import { useState, useRef, useEffect } from 'react';
+import './UserAccount.css';
+import CreateCustomCard from './CreateCustomCard';
+import TransferForm from './TransferForm';
+import Cards from './Cards';
+import Friends from './Friends';
+import Message from './Message';
+import { CopyLoader } from './loaders';
+
+const UserAccount = ({exit,balance,cardNumber}) => {
+    const [page, setPage] = useState('main');
+    const transferPanelRef = useRef();
+    const [settings, setSettings] = useState(false);
+    const [cards,setCards] = useState([]);
+    const [loader,setLoader] = useState(false);
+    const [allUsers,setAllUsers] = useState([]);
+    const [sendCard,setSendCard] = useState();
+    const [message,setMessage] = useState();
+
+    useEffect(() => {
+        const stored = localStorage.getItem('cards');
+        if (!stored) return;
+        try {
+            const parsed = JSON.parse(stored);
+    
+            if (Array.isArray(parsed)) {
+                setCards(parsed);
+            } else {
+                console.warn('localStorage.cards is not an array:', parsed);
+            }
+        } catch (e) {
+            console.error('Ошибка при разборе JSON из localStorage:', e);
+        }
+    },[])
+
+    const copyCard = async () => {
+        const cardNum = await fetch('http://localhost:5000/getCardNumber',{
+            method: "GET",
+            credentials: 'include'
+        });
+        if (!cardNum.ok) {
+            console.log('was error');
+        }else{
+            const card = await cardNum.json();
+            navigator.clipboard.writeText(card.cardNumber);
+            setLoader(true);
+            setTimeout(() => {
+                setLoader(false);
+            },1000)
+        }
+    }
+    const users = async () => {
+            const response = await fetch("http://localhost:5000/getUsers",{
+                method: "GET",
+                credentials: 'include'
+            })
+             if (!response.ok) {
+                console.log(response);
+             }else{
+                const users = await response.json();
+                setAllUsers([...users]);
+                setPage('friends');
+             }
+    }
+
+    const openSettings = () => {
+        setSettings(prev => !prev);
+    }
+
+    const clickOutsideTransfer = (e) => {
+        if (transferPanelRef.current && !transferPanelRef.current.contains(e.target)) {
+            setPage('main');
+        }
+    }
+    const messagePage = async () => {
+        const response = await fetch('http://localhost:5000/getMessage',{
+            method: "GET",
+            credentials: 'include'
+        })
+        if (!response.ok) {
+            console.log(response);
+        }else{
+            const res = await response.json();
+            setMessage(res);
+        }
+        setPage('message')
+    }
+
+    useEffect(() => {
+        document.addEventListener('mouseup', clickOutsideTransfer);
+        return () => {
+            document.removeEventListener('mouseup', clickOutsideTransfer);
+        }
+    }, [])
+
+    return (
+        <>
+            {page === 'createCard' && <CreateCustomCard exit={setPage} setCards={setCards} cards={cards}/>}
+            {page === 'friends' && <Friends exit={setPage} allUsers={allUsers}/>}
+            {page === 'message' && <Message exit={setPage} message={message}/>}
+            {(page === 'main' || page === 'transfer'|| page === 'cards') &&
+                <>
+                    <div id='userAccount-Wrapper'>
+                        {loader && <CopyLoader/>}
+                        {page === 'transfer' && <TransferForm transferPanelRef={transferPanelRef} setPage={setPage}/>}
+                        {page === 'cards' && <Cards exit={setPage} cards={cards} setCards={setCards} setSendCard={setSendCard} sendCard={sendCard}/>}
+                        <header id='userAccount-Header'>
+                            <button style={{background: localStorage.getItem('userColor'),fontSize: '2rem',color: 'white'}} onClick={openSettings}>{localStorage.getItem('userName')[0]}</button>
+                            {settings && 
+                            <ul>
+                                <li onClick={() => exit('main')}>Main</li>
+                                <li>Settings</li>
+                                <li>Log out</li>
+                            </ul>
+                            }
+                            <div id='userAccount-Logo'>
+                                Erval Bank
+                                <img id='userAccount-LogoImage' src="/logoBank.png" alt="logo" />
+                            </div>
+                        </header>
+                        <main id='userAccount-Main'>
+                            <div id='userAccount-CardsContainer'>
+                                    <div id='userAccount-GoldenCard' className='UserAccountCard'>
+                                        <div className='CardNameCard'>Golden Card</div>
+                                        <div className='CardNumberCard'>
+                                            {cardNumber}
+                                        </div>
+                                        <button onClick={copyCard} className='copyBtn'>
+                                            <img src="/copy.svg" alt="copyIcon" />
+                                        </button>
+                                        <div className='Balance'>
+                                            Balance:
+                                            <span>{balance}</span>
+                                        </div>
+                                        <div className='CardNameBank'>Erval Bank</div>
+                                    </div>
+                            </div>
+                            <button onClick={() => setPage("createCard")} id='addCustomCard'>
+                                <img src="/addIcon.png" alt="" />
+                            </button>
+                        </main>
+                        <nav id='userAccount-Nav'>
+                            <div id='userAccount-NavBar'>
+                                <button id='topUpButton' onClick={() => setPage('transfer')} className='navItem'>
+                                    <img src="/transition.png" alt="top up" />
+                                </button>
+                                <button onClick={() =>setPage('cards')} id='transitionButton' className='navItem'>
+                                    <img src="/transition.png" alt="transition" />
+                                </button>
+                                <button onClick={messagePage} className='navItem'>
+                                    <img src="/historyImage.png" alt="history" />
+                                </button>
+                                <button onClick={users} className='navItem'>
+                                    <img src="/friendsIcon.png" alt="friends" />
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </>
+            }
+        </>
+    )
+}
+
+export default UserAccount;

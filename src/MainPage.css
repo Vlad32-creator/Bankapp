@@ -1,0 +1,589 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    user-select: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 300vh;
+    overflow: hidden;
+    color: black;
+    background-color: rgb(148, 148, 43);
+    background-image: radial-gradient(rgb(225, 50, 50), rgb(123, 27, 27));
+}
+
+#mainLogoBank {
+    margin-right: 2vh;
+}
+
+#mainPage {
+    width: 100%;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+}
+
+@media (max-width: 500px) {
+    header {
+        font-size: 10px;
+    }
+
+    #userAccountBtn {
+        width: 25px;
+        height: 25px;
+    }
+
+    .aNot {
+        display: none;
+    }
+
+    #main-mainPage {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 5vh;
+    }
+
+    /* golden card */
+    #golden-card-wrapper {
+        display: flex;
+        font-size: 10px;
+        width: 100vw !important;
+        height: 50%;
+    }
+
+    #golden-card {
+        border-radius: 20px;
+        width: 280px !important;
+        height: 150px !important;
+    }
+
+    #golden-card-number {
+        font-size: 20px !important;
+    }
+
+    #Blur-font {
+        width: 70% !important;
+        height: 100% !important;
+        filter: blur(30px) !important;
+    }
+
+    /* text */
+    #text-mainPage {
+        height: 80%;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    #text-mainPage h1 {
+        transform: translateX(5%);
+        width: 70% !important;
+        height: 81px;
+        font-size: 20px;
+    }
+
+    #text-mainPage p {
+        width: 245px !important;
+        height: 54px;
+        font-size: 15px;
+    }
+
+    #text-mainPage button {
+        width: 150px !important;
+        font-size: 15px;
+    }
+}
+
+
+#navigation {
+    display: flex;
+    gap: 5vh;
+    background-image: linear-gradient(150deg, rgb(225, 50, 50), rgb(123, 27, 27));
+    padding: 2vh;
+    border-radius: 5vh;
+}
+
+#navigation a {
+    color: black;
+    text-decoration: none;
+}
+
+#navigation a:hover {
+    text-decoration: underline;
+    color: rgb(45, 39, 39);
+}
+
+#userAccountBtn {
+    width: 5vh;
+    height: 5vh;
+    background: transparent;
+    border: none;
+}
+
+#userIcon {
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: auto;
+}
+
+#main-mainPage {
+    width: 100%;
+    height: 80%;
+    display: flex;
+}
+
+/*text main*/
+#text-mainPage {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 3fr 2fr 3fr;
+}
+
+#text-mainPage h1 {
+    width: 60%;
+    grid-row: 1/3;
+    grid-column: 1/3;
+    animation: text-show 2s ease;
+    transition: transform 1s ease;
+}
+
+#text-mainPage h1:hover {
+    transform: translateX(10%);
+}
+
+@keyframes text-show {
+    from {
+        opacity: 0;
+        transform: translateX(-20%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#text-mainPage p {
+    width: 60%;
+    grid-row: 1/4;
+    grid-column: 1/5;
+    animation: text-show 2s ease;
+    transition: transform 1s ease;
+}
+
+#text-mainPage p:hover {
+    transform: translateX(10%);
+}
+
+#text-mainPage button {
+    grid-row: 2/5;
+    grid-column: 1/3;
+    width: 40%;
+    padding: 3vh;
+    border: none;
+    background-color: rgb(251, 22, 22);
+    border-radius: 5vh;
+    animation: show-button 2s ease;
+    transition: all 1s ease;
+}
+
+@keyframes show-button {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#text-mainPage button:hover {
+    transform: scale(1.1);
+}
+
+
+/* golden-card main*/
+#golden-card-wrapper {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Blur-font {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 60%;
+    background-color: yellow;
+    border-radius: 50%;
+    filter: blur(50px);
+    transition: all 1s ease;
+    animation: show-font 3s ease;
+}
+
+@keyframes show-font {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#Blur-font:hover {
+    width: 80%;
+    height: 70%;
+}
+
+#golden-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: 45%;
+    background-image: linear-gradient(140deg, rgb(255, 217, 0) 30%, rgb(181, 157, 21));
+    border-radius: 5vh;
+    transition: all 1s ease;
+    animation: show-golden-card 2s ease;
+}
+
+@keyframes show-golden-card {
+    from {
+        transform: translate(0%, 0);
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+    }
+}
+
+#golden-card:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+#golden-card:active {
+    transform: translate(-50%, -50%) scale(1)
+}
+
+#text-Golden-Card {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+
+#text-Erval-Bank {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+}
+
+#golden-card-number {
+    font-size: 1.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+/* Page2 */
+#page2 {
+    width: 100%;
+    height: 100vh;
+}
+
+#page2 h1 {
+    margin: 3vh;
+}
+
+#page2 h1,
+p:nth-of-type(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page2-content {
+    display: flex;
+}
+
+#page2-text {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 3fr;
+    font-size: 1.5rem;
+}
+
+#page2-text h3 {
+    grid-column: 2/4;
+}
+
+#page2-text p:nth-of-type(1) {
+    grid-column: 2/3;
+}
+
+#page2-text p:nth-of-type(2) {
+    grid-column: 2/3;
+}
+
+#page2-text p:nth-of-type(3) {
+    grid-column: 2/4;
+}
+
+@media (max-width: 500px) {
+    #page2-content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #page2-text {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        gap: 5vh;
+        font-size: 1rem;
+    }
+
+    #page2-text:nth-child(2) {
+        max-width: 80vw !important;
+        margin: 5vh !important;
+    }
+
+    #custom-cards {
+        overflow-x: auto;
+        display: flex;
+        flex-direction: row !important;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .card {
+        transform: translateX(0) !important;
+        min-width: 280px !important;
+        min-height: 150px !important;
+    }
+
+    #FunnyCard {
+        background-size: 280px 150px !important;
+    }
+
+    .numberOfCard {
+        width: 60% !important;
+        font-size: 1.5rem !important;
+    }
+}
+
+/* cards */
+#custom-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+#casualCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 5vh;
+    width: 18vw;
+    height: 20vh;
+    border-radius: 5vh;
+    background-image: linear-gradient(180deg, rgb(211, 32, 32), rgb(109, 17, 17));
+}
+
+#FunnyCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 5vh;
+    width: 18vw;
+    height: 20vh;
+    border-radius: 5vh;
+    background-image: url('/smile.jfif');
+    background-size: 18vw 23vh;
+}
+
+#invincibleCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 5vh;
+    width: 18vw;
+    height: 20vh;
+    border-radius: 5vh;
+    background-color: yellow;
+}
+
+#flagUkr {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 50%;
+    background-color: blue;
+    border-radius: 5vh 5vh 0vh 0vh;
+    z-index: 0;
+}
+
+.nameOfCard {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 1;
+}
+
+.numberOfCard {
+    width: 80%;
+    height: 3vh;
+    font-size: clamp(0.7rem,2vw,1.5rem);
+    z-index: 1;
+}
+
+.nameOfBank {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+}
+
+/* Animation Page2 */
+.card {
+    opacity: 0;
+    transform: translateX(-40%);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.cardAnimation {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+/* Page3 */
+footer {
+    width: 100vw;
+    height: 100vh;
+}
+footer main{
+    width: 100vw;
+    height: 50vh;
+}
+footer section{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    align-items: center;
+    justify-content: center;
+}
+#contacts{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+.contactBtn{
+    background-color: transparent;
+    border: none;
+    width: 100px;
+    height: 100px;
+}
+.contactBtn:hover{
+    animation: interact 1s ease;
+}
+@keyframes interact {
+    20%{
+        transform: rotate(30deg);
+    }50%{
+        transform: rotate(-30deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+.contactImg{
+    transform: translateY(50%);
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 500px) {
+    .contactBtn{
+        display: block;
+        width: 75px;
+        height: 75px;
+    }
+    footer main{
+        display: flex;
+        flex-direction: column !important;
+    }
+    .textInFooter{
+        width: 70% !important;
+    }
+    #attention{
+        width: 100% !important;
+    }
+    #possibilities{
+        width: 100% !important;
+    }
+    footer section {
+        gap: 5vh !important;
+    }
+    footer section h2{
+        margin-top: 5vh;
+    }
+}
+/* main of footer */
+
+footer main{
+    display: flex;
+    flex-direction: row;
+}
+#attention{
+    color: rgb(228, 217, 217);
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 50vh;
+}
+#possibilities{
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 50vh;
+}
+.textInFooter{
+    width: 50%;
+}
