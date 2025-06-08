@@ -81,7 +81,7 @@ const UserAccount = ({exit,balance,cardNumber}) => {
             console.log(response);
         }else{
             const res = await response.json();
-            setMessage(res);
+            setMessage(res.reverse());
         }
         setPage('message')
     }
@@ -136,7 +136,7 @@ const UserAccount = ({exit,balance,cardNumber}) => {
                                     </div>
                             </div>
                             <button onClick={() => setPage("createCard")} id='addCustomCard'>
-                                <img src="/Bankapp/addIcon.png" alt="" />
+                                <img src="/Bankapp/addIcon.png" alt="add card" />
                             </button>
                         </main>
                         <nav id='userAccount-Nav'>

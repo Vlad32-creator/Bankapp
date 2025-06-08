@@ -34,7 +34,7 @@ const Friends = ({ exit, allUsers }) => {
     return (
         <div id="FriendsWrapper">
             <button id='backBtn' onClick={() => exit('main')}>
-                <img src="/arrow.png" alt="back" />
+                <img src="/Bankapp/arrow.png" alt="back" />
             </button>
             <div id='inputWrapper'>
                 <input ref={inputRef} type="text" />

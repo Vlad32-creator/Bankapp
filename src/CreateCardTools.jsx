@@ -253,13 +253,13 @@ export const Background = ({
             <div ref={backgroundRef} id="backgroundTools">
                 <header>
                     <button className="bgTools" onClick={() => setBackground('color')} title="color">
-                        <img src="./customCard/Rectangle.png" alt="color" />
+                        <img src="./Bankapp/customCard/Rectangle.png" alt="color" />
                     </button>
                     <button className="bgTools" onClick={() => setBackground('liner')} title="linerGradient">
-                        <img src="./customCard/linerGradient.png" alt="linerGradient" />
+                        <img src="./Bankapp/customCard/linerGradient.png" alt="linerGradient" />
                     </button>
                     <button className="bgTools" onClick={() => setBackground('radial')} title="radialGradient">
-                        <img src="./customCard/radialGradient.png" alt="radialGradient" />
+                        <img src="./Bankapp/customCard/radialGradient.png" alt="radialGradient" />
                     </button>
                 </header>
                 <main>
@@ -273,7 +273,7 @@ export const Background = ({
                             <button onClick={addLinerColor} id="addLinerGradientBtn">
                                 <h3>
                                     Liner Gradient
-                                    <img className="addGradientImg" src="/addIcon.png" alt="addColor" />
+                                    <img className="addGradientImg" src="/Bankapp/addIcon.png" alt="addColor" />
                                 </h3>
                             </button>
 
@@ -295,7 +295,7 @@ export const Background = ({
                             <button onClick={addRadialColor} id="addLinerGradientBtn">
                                 <h3>
                                     Radial Gradient
-                                    <img className="addGradientImg" src="/addIcon.png" alt="addColor" />
+                                    <img className="addGradientImg" src="/Bankapp/addIcon.png" alt="addColor" />
                                 </h3>
                             </button>
 
