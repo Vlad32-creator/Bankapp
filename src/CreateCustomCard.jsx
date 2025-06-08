@@ -1337,10 +1337,10 @@ export default function CreateCustomCard({ exit, setCards, cards }) {
         <>
             <div id="wrapperOfCustomCard">
                 <button onClick={() => exit('main')} id="backToMain">
-                    <img src="/arrow.png" alt="addCard" />
+                    <img src="/Bankapp/arrow.png" alt="addCard" />
                 </button>
                 <button onClick={() => addNewCardRef.current.style.display = 'flex'} id="addCard">
-                    <img src="/addIcon.png" alt="addCard" />
+                    <img src="/Bankapp/addIcon.png" alt="addCard" />
                 </button>
                 <input id="nameOfCard" type="text" placeholder="Name of card" />
                 <AddCustomCardPanel

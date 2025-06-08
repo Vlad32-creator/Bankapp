@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import './Cards.css';
 import SendMessageForm from './SendMessage';
 
@@ -26,7 +26,7 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
             {sendForm && <SendMessageForm sendCardRef={inputCardRef} setSendForm={setSendForm} sendCard={sendCard} />}
             <div id="CardsWrapper">
                 <button onClick={() => exit('main')}>
-                    <img src="/arrow.png" alt="back" />
+                    <img src="/Bankapp/arrow.png" alt="back" />
                 </button>
                 <ul>
                     {cards.map((card) => {
@@ -35,7 +35,7 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
                                 <li key={card.id}>
                                     <div>
                                         <button onClick={() => sendMyCard(card.id)}>
-                                            <img src="/send.png" alt="send" />
+                                            <img src="/Bankapp/send.png" alt="send" />
                                         </button>
                                         <button onClick={() => deleteCard(card.id)}>❌</button>
                                     </div>

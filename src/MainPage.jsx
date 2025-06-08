@@ -31,7 +31,6 @@ function Pages() {
     }
 
     useEffect(() => {
-        // if (!isRegistered) return;
         check();
     }, [])
 
@@ -114,7 +113,7 @@ function Pages() {
                     <div id="mainPage">
                         <header>
                             <div id="logoBank">
-                                <img id="mainLogoBank" src="/logoBank.png" alt="logo" />
+                                <img id="mainLogoBank" src="/Bankapp/logoBank.png" alt="logo" />
                                 Erval Bank
                             </div>
                             <nav id="navigation">
@@ -125,7 +124,7 @@ function Pages() {
                                 <a href="">Contacts</a>
                             </nav>
                             <button onClick={checkRegistration} id="userAccountBtn">
-                                <img id="userIcon" src="/userIcon.png" alt="userIcon" />
+                                <img id="userIcon" src="/Bankapp/userIcon.png" alt="userIcon" />
                             </button>
                         </header>
 
@@ -229,19 +228,19 @@ function Pages() {
                             <div id="contacts">
                                 <a href="https://www.instagram.com/valerakhovanovv" target="_blank">
                                     <button className="contactBtn">
-                                        <img className="contactImg" src="/instagramIcon.png" alt="instagram" />
+                                        <img className="contactImg" src="/Bankapp/instagramIcon.png" alt="instagram" />
                                     </button>
                                 </a>
 
                                 <a href="https://t.me/ValerijKhovanov" target="_blank">
                                     <button className="contactBtn">
-                                        <img className="contactImg" src="/telegramIcon.svg" alt="telegram" />
+                                        <img className="contactImg" src="/Bankapp/telegramIcon.svg" alt="telegram" />
                                     </button>
                                 </a>
 
                                 <a href="https://github.com/Vlad32-creator" target="_blank">
                                     <button className="contactBtn">
-                                        <img className="contactImg" src="/githubIcon.svg" alt="github" />
+                                        <img className="contactImg" src="/Bankapp/githubIcon.svg" alt="github" />
                                     </button>
                                 </a>
                             </div>
