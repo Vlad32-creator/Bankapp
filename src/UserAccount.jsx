@@ -34,7 +34,7 @@ const UserAccount = ({exit,balance,cardNumber}) => {
     },[])
 
     const copyCard = async () => {
-        const cardNum = await fetch('http://localhost:5000/getCardNumber',{
+        const cardNum = await fetch('https://bankappbackand.onrender.com/getCardNumber',{
             method: "GET",
             credentials: 'include'
         });
@@ -50,7 +50,7 @@ const UserAccount = ({exit,balance,cardNumber}) => {
         }
     }
     const users = async () => {
-            const response = await fetch("http://localhost:5000/getUsers",{
+            const response = await fetch("https://bankappbackand.onrender.com/getUsers",{
                 method: "GET",
                 credentials: 'include'
             })
@@ -73,7 +73,7 @@ const UserAccount = ({exit,balance,cardNumber}) => {
         }
     }
     const messagePage = async () => {
-        const response = await fetch('http://localhost:5000/getMessage',{
+        const response = await fetch('https://bankappbackand.onrender.com/getMessage',{
             method: "GET",
             credentials: 'include'
         })

@@ -19,7 +19,7 @@ const SendMessageForm = ({sendCardRef,setSendForm,sendCard}) => {
 
     const sendMessage = async () => {
         const message = {text: textRef.current.value,recipient: recipientRef.current.value,card: sendCard};
-        const response = await fetch('http://localhost:5000/message',{
+        const response = await fetch('https://bankappbackand.onrender.com/message',{
             method: "POST",
             credentials: 'include',
             headers: {

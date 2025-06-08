@@ -22,7 +22,7 @@ const RegistrationPage = ({ exit,setIsRegistered ,setBalance,setCardNumber}) => 
 
     const registration = async () => {
         setEnterOrRegistration('loader');
-        const response = await fetch('http://localhost:5000/registration', {
+        const response = await fetch('https://bankappbackand.onrender.com/registration', {
             method: "Post",
             headers: {
                 'Content-Type': 'application/json'

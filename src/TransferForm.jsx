@@ -6,7 +6,7 @@ import {useRef} from 'react';
     const sumRef = useRef();
 
     const maceTransfer = async () => {
-        const response = await fetch('http://localhost:5000/transfer',{
+        const response = await fetch('https://bankappbackand.onrender.com/transfer',{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

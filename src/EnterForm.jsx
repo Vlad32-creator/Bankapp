@@ -14,7 +14,8 @@ const EnterForm = ({ exit, setPage ,setBalance,setCardNumber}) => {
 
     const login = async () => {
        setLoader(true);
-        const response = await fetch('http://localhost:5000/login', {
+
+        const response = await fetch('https://bankappbackand.onrender.com/login', {
             method: "Post",
             headers: {
                 'Content-Type': 'application/json'

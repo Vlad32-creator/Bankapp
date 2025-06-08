@@ -12,7 +12,7 @@ function Pages() {
 
     async function check() {
         try {
-            const response = await fetch('http://localhost:5000/checkTokens', {
+            const response = await fetch('https://bankappbackand.onrender.com/checkTokens', {
                 method: 'GET',
                 credentials: 'include'
             });
