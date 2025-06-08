@@ -253,13 +253,13 @@ export const Background = ({
             <div ref={backgroundRef} id="backgroundTools">
                 <header>
                     <button className="bgTools" onClick={() => setBackground('color')} title="color">
-                        <img src="./Bankapp/customCard/Rectangle.png" alt="color" />
+                        <img src="./customCard/Rectangle.png" alt="color" />
                     </button>
                     <button className="bgTools" onClick={() => setBackground('liner')} title="linerGradient">
-                        <img src="./Bankapp/customCard/linerGradient.png" alt="linerGradient" />
+                        <img src="./customCard/linerGradient.png" alt="linerGradient" />
                     </button>
                     <button className="bgTools" onClick={() => setBackground('radial')} title="radialGradient">
-                        <img src="./Bankapp/customCard/radialGradient.png" alt="radialGradient" />
+                        <img src="./customCard/radialGradient.png" alt="radialGradient" />
                     </button>
                 </header>
                 <main>

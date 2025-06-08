@@ -148,7 +148,7 @@
     border-radius: 5vh;
 }
 .UserAccountCard{
-    animation: cardAppend 2s ease;
+    animation: cardAppend 1s ease;
     transition: transform 1s ease, box-shadow 1s ease;
 }
 .UserAccountCard:active{

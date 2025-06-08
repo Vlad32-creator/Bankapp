@@ -25,7 +25,7 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
         <>
             {sendForm && <SendMessageForm sendCardRef={inputCardRef} setSendForm={setSendForm} sendCard={sendCard} />}
             <div id="CardsWrapper">
-                <button onClick={() => exit('main')}>
+                <button id='exitBtn' onClick={() => exit('main')}>
                     <img src="/Bankapp/arrow.png" alt="back" />
                 </button>
                 <ul>
@@ -34,10 +34,10 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
                         return (
                                 <li key={card.id}>
                                     <div>
-                                        <button onClick={() => sendMyCard(card.id)}>
-                                            <img src="/Bankapp/send.png" alt="send" />
+                                        <button className='btnSend' onClick={() => sendMyCard(card.id)}>
+                                            <img className='imgSend' src="/Bankapp/send.png" alt="send" />
                                         </button>
-                                        <button onClick={() => deleteCard(card.id)}>❌</button>
+                                        <button id='deleteBtn' onClick={() => deleteCard(card.id)}>❌</button>
                                     </div>
                                     <canvas
                                         ref={canvas => {
