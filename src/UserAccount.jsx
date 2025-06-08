@@ -115,7 +115,7 @@ const UserAccount = ({exit,balance,cardNumber}) => {
                             }
                             <div id='userAccount-Logo'>
                                 Erval Bank
-                                <img id='userAccount-LogoImage' src="/logoBank.png" alt="logo" />
+                                <img id='userAccount-LogoImage' src="/Bankapp/logoBank.png" alt="logo" />
                             </div>
                         </header>
                         <main id='userAccount-Main'>
@@ -126,7 +126,7 @@ const UserAccount = ({exit,balance,cardNumber}) => {
                                             {cardNumber}
                                         </div>
                                         <button onClick={copyCard} className='copyBtn'>
-                                            <img src="/copy.svg" alt="copyIcon" />
+                                            <img src="/Bankapp/copy.svg" alt="copyIcon" />
                                         </button>
                                         <div className='Balance'>
                                             Balance:
@@ -136,22 +136,22 @@ const UserAccount = ({exit,balance,cardNumber}) => {
                                     </div>
                             </div>
                             <button onClick={() => setPage("createCard")} id='addCustomCard'>
-                                <img src="/addIcon.png" alt="" />
+                                <img src="/Bankapp/addIcon.png" alt="" />
                             </button>
                         </main>
                         <nav id='userAccount-Nav'>
                             <div id='userAccount-NavBar'>
                                 <button id='topUpButton' onClick={() => setPage('transfer')} className='navItem'>
-                                    <img src="/transition.png" alt="top up" />
+                                    <img src="/Bankapp/transition.png" alt="top up" />
                                 </button>
                                 <button onClick={() =>setPage('cards')} id='transitionButton' className='navItem'>
-                                    <img src="/transition.png" alt="transition" />
+                                    <img src="/Bankapp/transition.png" alt="transition" />
                                 </button>
                                 <button onClick={messagePage} className='navItem'>
-                                    <img src="/historyImage.png" alt="history" />
+                                    <img src="/Bankapp/historyImage.png" alt="history" />
                                 </button>
                                 <button onClick={users} className='navItem'>
-                                    <img src="/friendsIcon.png" alt="friends" />
+                                    <img src="/Bankapp/friendsIcon.png" alt="friends" />
                                 </button>
                             </div>
                         </nav>

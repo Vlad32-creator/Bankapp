@@ -66,7 +66,7 @@ const EnterForm = ({ exit, setPage ,setBalance,setCardNumber}) => {
             <main ref={containerRef} id='enterAccountContent' >
                 <div id='exit' onClick={() => exit('main')}>&#10007;</div>
                 <h1 id='registrationLogo'>
-                    <img id='logoImage' src="/logoBank.png" alt="logo" />
+                    <img id='logoImage' src="/Bankapp/logoBank.png" alt="logo" />
                     Erval Bank
                 </h1>
                 <div id='information'>Enter Your account details</div>

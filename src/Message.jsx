@@ -4,7 +4,7 @@ const Message = ({ exit, message }) => {
     return (
         <div id="messageWrapper">
             <button onClick={() => exit('main')} id='back'>
-                <img src="/arrow.png" alt="back" />
+                <img src="/Bankapp/arrow.png" alt="back" />
             </button>
             <ul id='message'>
                 {message.map((mes,index) => {

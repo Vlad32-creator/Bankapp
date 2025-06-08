@@ -30,7 +30,7 @@ import {useRef} from 'react';
     return (
         <div ref={transferPanelRef} id='TransferFormWrapper'>
             <div>
-                <img src="/logoBank.png" alt="logo" />
+                <img src="/Bankapp/logoBank.png" alt="logo" />
                 <h2>Transfer</h2>
             </div>
             <main>

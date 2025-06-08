@@ -89,7 +89,7 @@ const RegistrationPage = ({ exit,setIsRegistered ,setBalance,setCardNumber}) => 
                                 <>
                                     <div className='append' onClick={() => exit('main')} id='exit'>&#10007;</div>
                                     <h1 className='append' id='registrationLogo'>
-                                        <img id='logoImage' src="/logoBank.png" alt="logo" />
+                                        <img id='logoImage' src="/Bankapp/logoBank.png" alt="logo" />
                                         Erval Bank
                                     </h1>
                                     <div className='append' id='inputs'>
