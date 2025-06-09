@@ -1,25 +1,28 @@
+import { MainLoader } from "./loaders";
 import "./SendMessage.css"
-import { useEffect,useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-const SendMessageForm = ({sendCardRef,setSendForm,sendCard}) => {
+const SendMessageForm = ({ sendCardRef, setSendForm, sendCard }) => {
     const recipientRef = useRef();
     const textRef = useRef();
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
-        function clickOutside(e){
+        function clickOutside(e) {
             if (sendCardRef.current && !sendCardRef.current.contains(e.target)) {
                 setSendForm(false);
             }
         }
-        document.addEventListener('mouseup',clickOutside);
+        document.addEventListener('mouseup', clickOutside);
         return () => {
-            document.removeEventListener('mouseup',clickOutside);
+            document.removeEventListener('mouseup', clickOutside);
         }
-    },[])
+    }, [])
 
     const sendMessage = async () => {
-        const message = {text: textRef.current.value,recipient: recipientRef.current.value,card: sendCard};
-        const response = await fetch('https://bankappbackand.onrender.com/message',{
+        setLoader(true);
+        const message = { text: textRef.current.value, recipient: recipientRef.current.value, card: sendCard };
+        const response = await fetch('https://bankappbackand.onrender.com/message', {
             method: "POST",
             credentials: 'include',
             headers: {
@@ -29,20 +32,23 @@ const SendMessageForm = ({sendCardRef,setSendForm,sendCard}) => {
         })
 
         if (!response.ok) {
-            console.log(response);
-        }else{
-            console.log('send');
+            setLoader(false);
+        } else {
+            setLoader(false);
         }
         setSendForm(false);
     }
 
-    return(
-        <div ref={sendCardRef} id="SendMessageFormWrapper">
-            <h3>Message</h3>
-            <input ref={recipientRef} type="text" placeholder="Recipient"/>
-            <textarea ref={textRef} name="" id=""></textarea>
-            <button onClick={sendMessage}>send</button>
-        </div>
+    return (
+        <>
+            {loader && <MainLoader/>}
+            <div ref={sendCardRef} id="SendMessageFormWrapper">
+                <h3>Message</h3>
+                <input ref={recipientRef} type="text" placeholder="Recipient" />
+                <textarea ref={textRef} name="" id=""></textarea>
+                <button onClick={sendMessage}>send</button>
+            </div>
+        </>
     )
 }
 

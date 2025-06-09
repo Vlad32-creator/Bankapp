@@ -105,13 +105,13 @@ const UserAccount = ({ exit, balance, cardNumber }) => {
         <>
             {page === 'createCard' && <CreateCustomCard exit={setPage} setCards={setCards} cards={cards} />}
             {page === 'friends' && <Friends exit={setPage} allUsers={allUsers} />}
-            {page === 'message' && <Message exit={setPage} message={message} />}
+            {page === 'message' && <Message exit={setPage} message={message} setCards={setCards}/>}
             {(page === 'main' || page === 'transfer' || page === 'cards') &&
                 <>
                     <div id='userAccount-Wrapper'>
                         {mainLoader && <MainLoader />}
                         {loader && <CopyLoader />}
-                        {page === 'transfer' && <TransferForm transferPanelRef={transferPanelRef} setPage={setPage} />}
+                        {page === 'transfer' && <TransferForm transferPanelRef={transferPanelRef} setPage={setPage} setMainLoader={setMainLoader} />}
                         {page === 'cards' && <Cards exit={setPage} cards={cards} setCards={setCards} setSendCard={setSendCard} sendCard={sendCard} />}
                         <header id='userAccount-Header'>
                             <button style={{ background: localStorage.getItem('userColor'), fontSize: '2rem', color: 'white' }} onClick={openSettings}>{localStorage.getItem('userName')[0]}</button>
@@ -154,7 +154,7 @@ const UserAccount = ({ exit, balance, cardNumber }) => {
                                     <img src="/Bankapp/transition.png" alt="top up" />
                                 </button>
                                 <button onClick={() => setPage('cards')} id='transitionButton' className='navItem'>
-                                    <img src="/Bankapp/transition.png" alt="transition" />
+                                    <img src="/Bankapp/cardLogo.png" alt="transition" />
                                 </button>
                                 <button onClick={messagePage} className='navItem'>
                                     <img src="/Bankapp/historyImage.png" alt="history" />

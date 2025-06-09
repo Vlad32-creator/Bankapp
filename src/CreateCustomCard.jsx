@@ -1323,12 +1323,12 @@ export default function CreateCustomCard({ exit, setCards, cards }) {
         const newCard = { draw: canvas.toDataURL(), id: Date.now() + Math.random() };
 
         setCards(prev => {
-            const updated = prev.length > 16 ? prev : [...prev, newCard];
+            const updated = prev.length > 16 ? prev : [...prev, newCard].reverse();
             localStorage.setItem('cards', JSON.stringify(updated));
             return updated;
         });
 
-        exit('main');
+        exit('cards');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 

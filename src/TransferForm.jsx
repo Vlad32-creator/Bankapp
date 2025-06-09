@@ -1,11 +1,12 @@
 import './TransferForm.css';
 import {useRef} from 'react';
 
- const TransferForm = ({transferPanelRef,setPage}) => {
+ const TransferForm = ({transferPanelRef,setPage,setMainLoader}) => {
     const numberOfCardRef = useRef();
     const sumRef = useRef();
 
     const maceTransfer = async () => {
+        setMainLoader(true);
         const response = await fetch('https://bankappbackand.onrender.com/transfer',{
             method: "POST",
             headers: {
@@ -19,8 +20,10 @@ import {useRef} from 'react';
         });
 
         if (!response.ok) {
+            setMainLoader(false);
             return;
         }else{
+            setMainLoader(false);
             const res = await response.json();
             console.log(res);
             setPage('main');

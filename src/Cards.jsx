@@ -7,14 +7,21 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
     const [sendForm, setSendForm] = useState(false);
     const inputCardRef = useRef();
     const canvasRefs = useRef({});
+    const [deletePanel, setDeletePanel] = useState(false);
+    const [id,setId] = useState();
 
-    const deleteCard = (indexCard) => {
+    const deleteCard = () => {
         setCards(prev => {
-            const update = cards.filter((card) => card.id !== indexCard)
+            const update = prev.filter((card) => card.id !== id);
             localStorage.setItem('cards', JSON.stringify(update));
             return update;
         }
         );
+        setDeletePanel(false);
+    }
+    const openDeletePanel = (id) => {
+        setDeletePanel(true);
+        setId(id);
     }
     const sendMyCard = (id) => {
         setSendCard(canvasRefs.current[id].toDataURL());
@@ -25,6 +32,15 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
         <>
             {sendForm && <SendMessageForm sendCardRef={inputCardRef} setSendForm={setSendForm} sendCard={sendCard} />}
             <div id="CardsWrapper">
+                {deletePanel &&
+                    <div id='wrapperDeletePanel'>
+                        <h3>Do you want to delete the card?</h3>
+                        <div id='deleteOrNot'>
+                            <button onClick={deleteCard}>Yes</button>
+                            <button onClick={() => setDeletePanel(false)}>No</button>
+                        </div>
+                    </div>
+                }
                 <button id='exitBtn' onClick={() => exit('main')}>
                     <img src="/Bankapp/arrow.png" alt="back" />
                 </button>
@@ -32,33 +48,32 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
                     {cards.map((card) => {
                         if (card === null || card === undefined) return;
                         return (
-                                <li key={card.id}>
-                                    <div>
-                                        <button className='btnSend' onClick={() => sendMyCard(card.id)}>
-                                            <img className='imgSend' src="/Bankapp/send.png" alt="send" />
-                                        </button>
-                                        <button id='deleteBtn' onClick={() => deleteCard(card.id)}>❌</button>
-                                    </div>
-                                    <canvas
-                                        ref={canvas => {
-                                            if (canvas) {
-                                                canvasRefs.current[card.id] = canvas;
-                                                const ctx = canvas.getContext("2d");
-                                                const img = new Image();
-                                                img.crossOrigin = 'anonymous';
-                                                img.src = card.draw;
-                                                img.onload = () => {
-                                                    canvas.width = img.width;
-                                                    canvas.height = img.height;
-                                                    ctx.drawImage(img, 0, 0);
-                                                };
-                                            }
-                                        }}
-                                    ></canvas>
-                                </li>
+                            <li key={card.id}>
+                                <div>
+                                    <button className='btnSend' onClick={() => sendMyCard(card.id)}>
+                                        <img className='imgSend' src="/Bankapp/send.png" alt="send" />
+                                    </button>
+                                    <button id='deleteBtn' onClick={() => openDeletePanel(card.id)}>❌</button>
+                                </div>
+                                <canvas
+                                    ref={canvas => {
+                                        if (canvas) {
+                                            canvasRefs.current[card.id] = canvas;
+                                            const ctx = canvas.getContext("2d");
+                                            const img = new Image();
+                                            img.crossOrigin = 'anonymous';
+                                            img.src = card.draw;
+                                            img.onload = () => {
+                                                canvas.width = img.width;
+                                                canvas.height = img.height;
+                                                ctx.drawImage(img, 0, 0);
+                                            };
+                                        }
+                                    }}
+                                ></canvas>
+                            </li>
                         )
                     })
-
                     }
                 </ul>
             </div>

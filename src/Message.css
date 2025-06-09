@@ -14,6 +14,7 @@
     border: none;
 }
 #message{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -71,4 +72,13 @@
         width: 303px !important;
         height: 155px !important;
     }
+}
+#copyBtn{
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background-image: linear-gradient(180deg, rgb(142, 210, 186), rgb(73, 108, 95));
 }
