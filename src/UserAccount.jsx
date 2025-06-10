@@ -18,6 +18,8 @@ const UserAccount = ({ exit, balance, cardNumber }) => {
     const [sendCard, setSendCard] = useState();
     const [message, setMessage] = useState();
     const [mainLoader, setMainLoader] = useState(false);
+    const [customCard, setCustomCard] = useState(false);
+    const [customCardColor, setCustomCardColor] = useState({});
 
     useEffect(() => {
         const stored = localStorage.getItem('cards');
@@ -105,14 +107,23 @@ const UserAccount = ({ exit, balance, cardNumber }) => {
         <>
             {page === 'createCard' && <CreateCustomCard exit={setPage} setCards={setCards} cards={cards} />}
             {page === 'friends' && <Friends exit={setPage} allUsers={allUsers} />}
-            {page === 'message' && <Message exit={setPage} message={message} setCards={setCards}/>}
+            {page === 'message' && <Message exit={setPage} message={message} setCards={setCards} />}
             {(page === 'main' || page === 'transfer' || page === 'cards') &&
                 <>
                     <div id='userAccount-Wrapper'>
                         {mainLoader && <MainLoader />}
                         {loader && <CopyLoader />}
                         {page === 'transfer' && <TransferForm transferPanelRef={transferPanelRef} setPage={setPage} setMainLoader={setMainLoader} />}
-                        {page === 'cards' && <Cards exit={setPage} cards={cards} setCards={setCards} setSendCard={setSendCard} sendCard={sendCard} />}
+                        {page === 'cards' &&
+                            <Cards
+                                exit={setPage}
+                                cards={cards}
+                                setCards={setCards}
+                                setSendCard={setSendCard}
+                                sendCard={sendCard}
+                                setCustomCard={setCustomCard}
+                                setCustomCardColor={setCustomCardColor}
+                            />}
                         <header id='userAccount-Header'>
                             <button style={{ background: localStorage.getItem('userColor'), fontSize: '2rem', color: 'white' }} onClick={openSettings}>{localStorage.getItem('userName')[0]}</button>
                             {settings &&
@@ -129,20 +140,50 @@ const UserAccount = ({ exit, balance, cardNumber }) => {
                         </header>
                         <main id='userAccount-Main'>
                             <div id='userAccount-CardsContainer'>
-                                <div id='userAccount-GoldenCard' className='UserAccountCard'>
-                                    <div className='CardNameCard'>Golden Card</div>
-                                    <div className='CardNumberCard'>
-                                        {cardNumber}
+                                {!customCard &&
+                                    <div id='userAccount-GoldenCard' className='UserAccountCard'>
+                                        <div className='CardNameCard'>Golden Card</div>
+                                        <div className='CardNumberCard'>
+                                            {cardNumber}
+                                        </div>
+                                        <button onClick={copyCard} className='copyBtn'>
+                                            <img src="/Bankapp/copy.svg" alt="copyIcon" />
+                                        </button>
+                                        <div className='Balance'>
+                                            Balance:
+                                            <span>{balance}</span>
+                                        </div>
+                                        <div className='CardNameBank'>Erval Bank</div>
                                     </div>
-                                    <button onClick={copyCard} className='copyBtn'>
-                                        <img src="/Bankapp/copy.svg" alt="copyIcon" />
-                                    </button>
-                                    <div className='Balance'>
-                                        Balance:
-                                        <span>{balance}</span>
+                                }
+                                {customCard &&
+                                    <div id='userAccount-CustomCard'>
+                                        <div className='CardNameCard'>{customCardColor.name}</div>
+                                        <div className='CardNumberCard'>
+                                            {cardNumber}
+                                        </div>
+                                        <button onClick={copyCard} className='copyBtn'>
+                                            <img src="/Bankapp/copy.svg" alt="copyIcon" />
+                                        </button>
+                                        <div className='Balance'>
+                                            Balance:
+                                            <span>{balance}</span>
+                                        </div>
+                                        <div className='CardNameBank'>Erval Bank</div>
+                                        <canvas ref={canvas => {
+                                            if (!canvas) return;
+                                            const ctx = canvas.getContext('2d');
+                                            const img = new Image();
+                                            img.src = customCardColor.draw;
+                                            img.onload = () => {
+                                                canvas.width = img.width;
+                                                canvas.height = img.height;
+                                                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                                ctx.drawImage(img, 0, 0);
+                                            }
+                                        }}></canvas>
                                     </div>
-                                    <div className='CardNameBank'>Erval Bank</div>
-                                </div>
+                                }
                             </div>
                             <button onClick={() => setPage("createCard")} id='addCustomCard'>
                                 <img src="/Bankapp/addIcon.png" alt="add card" />

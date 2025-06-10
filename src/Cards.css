@@ -57,6 +57,7 @@ body{
     border: 1px solid black !important;
 }
 #CardsWrapper ul li{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,6 +85,21 @@ body{
         width: 30px !important;
         height: 30px !important;
     }
+    .changeCard{
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+.changeCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border: 1px solid black !important;
+}
+.changeCard img{
+    width: 80%;
 }
 .btnSend{
     display: flex;
@@ -138,4 +154,9 @@ body{
 }
 #deleteOrNot button:nth-child(2){
     background-color: rgb(132, 129, 129);
+}
+.cardName{
+    position: absolute;
+    top: 15%;
+    left: 10%;
 }

@@ -3,7 +3,7 @@ import './Cards.css';
 import SendMessageForm from './SendMessage';
 
 
-const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
+const Cards = ({ exit, cards, setCards, setSendCard, sendCard ,setCustomCard,setCustomCardColor}) => {
     const [sendForm, setSendForm] = useState(false);
     const inputCardRef = useRef();
     const canvasRefs = useRef({});
@@ -26,6 +26,11 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
     const sendMyCard = (id) => {
         setSendCard(canvasRefs.current[id].toDataURL());
         setSendForm(true);
+    }
+    const changeCard = (id,name) => {
+        setCustomCardColor({draw: canvasRefs.current[id].toDataURL(),name: name});
+        setCustomCard(true);
+        exit('main');
     }
 
     return (
@@ -50,11 +55,15 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard }) => {
                         return (
                             <li key={card.id}>
                                 <div>
+                                    <button onClick={() => changeCard(card.id,card.name)} className='changeCard'>
+                                        <img src="/Bankapp/customCard.png" alt="changeCard"/>
+                                    </button>
                                     <button className='btnSend' onClick={() => sendMyCard(card.id)}>
                                         <img className='imgSend' src="/Bankapp/send.png" alt="send" />
                                     </button>
                                     <button id='deleteBtn' onClick={() => openDeletePanel(card.id)}>❌</button>
                                 </div>
+                                <span className='cardName'>{card.name?card.name:''}</span>
                                 <canvas
                                     ref={canvas => {
                                         if (canvas) {

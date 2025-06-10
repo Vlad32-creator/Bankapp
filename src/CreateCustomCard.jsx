@@ -54,6 +54,7 @@ export default function CreateCustomCard({ exit, setCards, cards }) {
     const [isCheckedFill, setIsCheckedFill] = useState(true);
     const [isCheckedStroke, setIsCheckedStroke] = useState(true);
     const addNewCardRef = useRef();
+    const nameOfCardRef = useRef();
 
     const clearHandler = () => {
         const canvas = canvasRef.current;
@@ -1320,7 +1321,7 @@ export default function CreateCustomCard({ exit, setCards, cards }) {
     const saveCard = () => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
-        const newCard = { draw: canvas.toDataURL(), id: Date.now() + Math.random() };
+        const newCard = { draw: canvas.toDataURL(), id: Date.now() + Math.random(),name: nameOfCardRef.current.value};
 
         setCards(prev => {
             const updated = prev.length > 16 ? prev : [...prev, newCard].reverse();
@@ -1342,7 +1343,7 @@ export default function CreateCustomCard({ exit, setCards, cards }) {
                 <button onClick={() => addNewCardRef.current.style.display = 'flex'} id="addCard">
                     <img src="/Bankapp/addIcon.png" alt="addCard" />
                 </button>
-                <input id="nameOfCard" type="text" placeholder="Name of card" />
+                <input ref={nameOfCardRef} id="nameOfCard" type="text" placeholder="Name of card" />
                 <AddCustomCardPanel
                     addNewCardRef={addNewCardRef}
                     setCards={setCards} exitPage={exit}
