@@ -151,7 +151,9 @@ export const PenPanel = ({
                     <button className="penPanelItem" onClick={() => setTools('patterns')}>
                         <img className="penPanelImg" src="./customCard/patterns.png" alt="patterns" />
                     </button>
-                    <button className="penPanelItem" onClick={() => setTools('thorns')}>thorns</button>
+                    <button className="penPanelItem" onClick={() => setTools('thorns')}>
+                        <img src="./thorns.png" alt="" />
+                    </button>
                     <button className="penPanelItem" onClick={() => setTools('spray')}>
                         <img className="penPanelImg" src="./customCard/spray.png" alt="spray" />
                     </button>
@@ -178,10 +180,18 @@ export const PenPanel = ({
                 <h4 style={{ color: 'rgb(230,202,202' }}>Effects</h4>
                 <div id="effects">
                     <button className="penPanelItem" onClick={() => setEffects([])}>none</button>
-                    <button className="penPanelItem" id="marker" onClick={checkEffects}>marker</button>
-                    <button className="penPanelItem" id="blur" onClick={checkEffects}>blur</button>
-                    <button className="penPanelItem" id="softStroke" onClick={checkEffects}>softStroke</button>
-                    <button className="penPanelItem" id="brightness" onClick={checkEffects}>brightness</button>
+                    <button className="penPanelItem" id="marker" onClick={checkEffects}>
+                        <img src="/Bankapp/marker.png" alt="marker" />
+                    </button>
+                    <button className="penPanelItem" id="blur" onClick={checkEffects}>
+                        <img src="/Bankapp/blur.png" alt="blur" />
+                    </button>
+                    <button className="penPanelItem" id="softStroke" onClick={checkEffects}>
+                        <img src="/Bankapp/customCard/lineShadow.png" alt="soft Stroke" />
+                    </button>
+                    <button className="penPanelItem" id="brightness" onClick={checkEffects}>
+                        <img src="/Bankapp/brightness.svg" alt="brightness" />
+                    </button>
                 </div>
 
                 <div>

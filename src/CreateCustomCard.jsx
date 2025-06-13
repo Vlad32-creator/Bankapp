@@ -3,8 +3,8 @@ import "./CreateCustomCard.css";
 import { back, Background, PenPanel, TextPanel, ShapesPanel, AddCustomCardPanel } from "./CreateCardTools"
 import Cards from "./Cards";
 
-export default function CreateCustomCard({ exit, setCards, cards }) {
-    const canvasRef = useRef();
+export default function CreateCustomCard({ exit, setCards,canvasRef,canvasPending,setCanvasPending}) {
+    // const canvasRef = useRef();
     const [tools, setTools] = useState('pen');
     const colorRef = useRef();
     const lineWidthRef = useRef();
@@ -30,12 +30,6 @@ export default function CreateCustomCard({ exit, setCards, cards }) {
         rect2: { x: 50, y: 50, r: 0, width: 20, height: 20 }
     });
     const [block, setBlock] = useState('');
-    const excludedKeys = [
-        'Enter', 'Backspace', 'Alt', 'Meta', 'Shift',
-        'Control', 'AltGraph', 'ArrowLeft', 'ArrowLeft',
-        'ArrowUp', 'ArrowDown', 'ArrowRight', 'End', 'Delete', 'Home', 'Insert',
-        'F12', 'F11', 'F10', 'F9', 'F8', 'F7', 'F6', 'F5', 'F4', 'F3', 'F2', 'F1'
-    ];
     const textColorRef = useRef();
     const fontRef = useRef();
     const [cordText, setCordText] = useState({ offsetX: 0, offsetY: 0, clientX: 0, clientY: 0 });
@@ -1419,4 +1413,3 @@ export default function CreateCustomCard({ exit, setCards, cards }) {
         </>
     )
 }
-

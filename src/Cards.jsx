@@ -3,12 +3,20 @@ import './Cards.css';
 import SendMessageForm from './SendMessage';
 
 
-const Cards = ({ exit, cards, setCards, setSendCard, sendCard ,setCustomCard,setCustomCardColor}) => {
+const Cards = ({
+    exit,
+    cards,
+    setCards,
+    setSendCard,
+    sendCard,
+    setCustomCard,
+    setCustomCardColor,
+}) => {
     const [sendForm, setSendForm] = useState(false);
     const inputCardRef = useRef();
     const canvasRefs = useRef({});
     const [deletePanel, setDeletePanel] = useState(false);
-    const [id,setId] = useState();
+    const [id, setId] = useState();
 
     const deleteCard = () => {
         setCards(prev => {
@@ -27,8 +35,8 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard ,setCustomCard,set
         setSendCard(canvasRefs.current[id].toDataURL());
         setSendForm(true);
     }
-    const changeCard = (id,name) => {
-        setCustomCardColor({draw: canvasRefs.current[id].toDataURL(),name: name});
+    const changeCard = (id, name) => {
+        setCustomCardColor({ draw: canvasRefs.current[id].toDataURL(), name: name });
         setCustomCard(true);
         exit('main');
     }
@@ -55,15 +63,18 @@ const Cards = ({ exit, cards, setCards, setSendCard, sendCard ,setCustomCard,set
                         return (
                             <li key={card.id}>
                                 <div>
-                                    <button onClick={() => changeCard(card.id,card.name)} className='changeCard'>
-                                        <img src="/Bankapp/customCard.png" alt="changeCard"/>
+                                    <button className='buttons'>
+                                        <img className='imgPaint' src="/Bankapp/paint.png" alt="paint" />
                                     </button>
-                                    <button className='btnSend' onClick={() => sendMyCard(card.id)}>
+                                    <button onClick={() => changeCard(card.id, card.name)} className='buttons'>
+                                        <img className='imgCustomCard' src="/Bankapp/customCard.png" alt="changeCard" />
+                                    </button>
+                                    <button className='buttons' onClick={() => sendMyCard(card.id)}>
                                         <img className='imgSend' src="/Bankapp/send.png" alt="send" />
                                     </button>
-                                    <button id='deleteBtn' onClick={() => openDeletePanel(card.id)}>❌</button>
+                                    <button id='buttons' className='buttons' onClick={() => openDeletePanel(card.id)}>❌</button>
                                 </div>
-                                <span className='cardName'>{card.name?card.name:''}</span>
+                                <span className='cardName'>{card.name ? card.name : ''}</span>
                                 <canvas
                                     ref={canvas => {
                                         if (canvas) {

@@ -20,6 +20,7 @@ const UserAccount = ({ exit, balance, cardNumber }) => {
     const [mainLoader, setMainLoader] = useState(false);
     const [customCard, setCustomCard] = useState(false);
     const [customCardColor, setCustomCardColor] = useState({});
+    const canvasRef = useRef();
 
     useEffect(() => {
         const stored = localStorage.getItem('cards');
@@ -105,7 +106,7 @@ const UserAccount = ({ exit, balance, cardNumber }) => {
 
     return (
         <>
-            {page === 'createCard' && <CreateCustomCard exit={setPage} setCards={setCards} cards={cards} />}
+            {page === 'createCard' && <CreateCustomCard exit={setPage} setCards={setCards} canvasRef={canvasRef}/>}
             {page === 'friends' && <Friends exit={setPage} allUsers={allUsers} />}
             {page === 'message' && <Message exit={setPage} message={message} setCards={setCards} />}
             {(page === 'main' || page === 'transfer' || page === 'cards') &&
