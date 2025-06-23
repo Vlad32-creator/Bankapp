@@ -22,6 +22,8 @@ React (Create React App)
 
 JavaScript (ES6+)
 
+Canvas API
+
 JWT (JSON Web Token) Authentication
 
 Custom Express-like backend
