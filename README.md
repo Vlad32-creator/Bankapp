@@ -39,9 +39,9 @@ HTML5 / CSS3
 
 ## 🖼️ Screenshots
 
-| Login Page | Dashboard |
+| Login Page | User Account | Change Cards|Create Custom Card|
 |------------|-----------|
-| ![Registration](./assets/registraition.png) | ![User Account](./assets/userAcount.png) |
+| ![Registration](./assets/registraition.png) | ![User Account](./assets/userAcount.png) | ![changeCards](./assets/changeCards.png)|![createCustomCard](./assets/createCustomCard.png) |
 
 > _📸 Put your screenshots in a folder named `assets/` and name them accordingly._
 
