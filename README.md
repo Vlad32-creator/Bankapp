@@ -41,7 +41,7 @@ HTML5 / CSS3
 
 | Login Page | Dashboard |
 |------------|-----------|
-| ![Login](./assets/login.png) | ![Dashboard](./assets/dashboard.png) |
+| ![Registration](./assets/registraition.png) | ![User Account](./assets/userAcount.png) |
 
 > _📸 Put your screenshots in a folder named `assets/` and name them accordingly._
 
