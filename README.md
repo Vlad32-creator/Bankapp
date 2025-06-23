@@ -43,8 +43,6 @@ HTML5 / CSS3
 |------------|-----------|
 | ![Registration](./assets/registraition.png) | ![User Account](./assets/userAcount.png) | ![changeCards](./assets/changeCards.png)|![createCustomCard](./assets/createCustomCard.png) |
 
-> _📸 Put your screenshots in a folder named `assets/` and name them accordingly._
-
 ---
 
 ## 🚀 Getting Started
