@@ -14,6 +14,7 @@
 - 📬 **Send Your Custom Cards to Other Users**
 - 🧱 **Built-in XSS / SQL / CSRF protection**
 - 🛡️ Input sanitization and anti-script injection logic
+- ⚛️ Built with React for smooth user experience
 - ⚙️ Works even without a database (using in-memory structure)
 
 ---
