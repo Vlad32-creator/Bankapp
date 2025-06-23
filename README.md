@@ -17,6 +17,20 @@
 - ⚙️ Works even without a database (using in-memory structure)
 
 ---
+🧰 Technologies Used
+React (Create React App)
+
+JavaScript (ES6+)
+
+JWT (JSON Web Token) Authentication
+
+Custom Express-like backend
+
+In-memory data store (Map)
+
+DOM XSS & CSRF protection
+
+HTML5 / CSS3
 
 ## 🖼️ Screenshots
 
