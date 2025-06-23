@@ -19,11 +19,6 @@
 ---
 
 ---
-```markdown
-![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
-![Status](https://img.shields.io/badge/status-live-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
-
 🧰 Technologies Used
 React (Create React App)
 
